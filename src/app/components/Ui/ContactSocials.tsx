@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Container, Flex, Icon, Link, Text } from "@chakra-ui/react";
-import WhatsappIcon from "../../../public/Icons/WhatsappIcon";
-import Number from "../../../public/Icons/Number";
-import Gmail from "../../../public/Icons/Gmail";
-import LocationIcon from "../../../public/Icons/LocationIcon";
+import WhatsappIcon from "../../../../public/Icons/WhatsappIcon";
+import Number from "../../../../public/Icons/Number";
+import Gmail from "../../../../public/Icons/Gmail";
+import LocationIcon from "../../../../public/Icons/LocationIcon";
 const ContactSocials = () => {
   const Socials = [
     {
