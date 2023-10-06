@@ -19,7 +19,7 @@ const DesktopNav = () => {
             color="neutral"
             data-active={item.href === pathname ? "true" : undefined}
             _active={{
-              borderBottom: item.href === pathname ? "2px solid primary" : "",
+              color: item.href === pathname ? "primary" : "",
             }}
             _hover={{ textDecoration: "none" }}
             transition="all .2s ease"

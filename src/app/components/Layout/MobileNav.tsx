@@ -1,8 +1,9 @@
 import { chakra, Link, Stack, Button } from "@chakra-ui/react";
 import React from "react";
 import { NAV_DATA } from "@/app/Data/DestopNavData";
-
+import { usePathname } from "next/navigation";
 const MobileNav = () => {
+  const pathname = usePathname();
   return (
     <Stack bg={"#fff"} p={5} py={5} display={{ xl: "none" }}>
       <chakra.ul
@@ -19,8 +20,12 @@ const MobileNav = () => {
               fontFamily={"Outfit"}
               textAlign={"center"}
               listStyleType={"none"}
-              fontSize={"18px"}
-              fontWeight={"400"}
+              fontSize={"16px"}
+              fontWeight={"500"}
+              data-active={item.href === pathname ? "true" : undefined}
+              _active={{
+                color: item.href === pathname ? "primary" : "",
+              }}
               // borderBottom={"1px solid #eee"}
               p="1rem"
             >

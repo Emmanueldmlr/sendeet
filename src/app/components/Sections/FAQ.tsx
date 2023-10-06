@@ -53,7 +53,8 @@ const FAQ = () => {
               </Heading>
 
               <Link
-                as={Flex}
+                // as={Flex}
+                href="/FaqPage"
                 gap="0.2rem"
                 display={{ base: "none", xl: "flex" }}
                 alignItems={"center"}
@@ -103,7 +104,8 @@ const FAQ = () => {
               ))}
             </Accordion>
             <Link
-              as={Flex}
+              // as={Flex}
+              href="/FaqPage"
               gap="0.2rem"
               display={{ base: "flex", xl: "none" }}
               alignItems={"center"}

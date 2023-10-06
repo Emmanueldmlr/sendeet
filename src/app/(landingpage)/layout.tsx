@@ -2,6 +2,7 @@
 
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
+import FixedLink from "../components/Ui/FixedLink";
 
 export default function RootLayout({
   children,
@@ -13,6 +14,7 @@ export default function RootLayout({
       <Header />
       {children}
       <Footer />
+      <FixedLink />
     </>
   );
 }

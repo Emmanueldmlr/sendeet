@@ -22,7 +22,7 @@ const Footer = () => {
         "radial-gradient(67.33% 56.97% at 56.46% 43.4%, rgba(31, 31, 31, 0.88) 0%, #1F1F1F 100%)"
       }
     >
-      <Box px="1rem" pb="6rem" pt="4rem" borderBottom={"1px solid #A19F9F"}>
+      <Box px="1rem" pb="4rem" pt="4rem" borderBottom={"1px solid #A19F9F"}>
         <Flex
           flexDirection={"column"}
           alignItems={{ base: "left", xl: "center" }}
@@ -111,12 +111,12 @@ const Footer = () => {
         justifyContent={{ base: "center", xl: "center" }}
         flexDirection={"row"}
         pt="1rem"
-        pb="2rem"
+        pb="1rem"
         px={{ base: "2rem", xl: "" }}
       >
         <SimpleGrid
           columns={{ base: 1, md: 2, xl: 3 }}
-          spacing={{ base: "1rem", lg: "28rem" }}
+          spacing={{ base: "1rem", xl: "28rem" }}
           color="#DADADA"
         >
           <HStack

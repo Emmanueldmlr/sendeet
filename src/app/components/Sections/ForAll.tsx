@@ -1,4 +1,12 @@
-import { Stack, Text, Box, Heading, Button, Flex } from "@chakra-ui/react";
+import {
+  Stack,
+  Text,
+  Box,
+  Heading,
+  Button,
+  Flex,
+  Link,
+} from "@chakra-ui/react";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -71,7 +79,9 @@ const ForAll = () => {
               >
                 {i.body}
               </Heading>
-              <Button variant={"solid"}>View All</Button>
+              <Link href="/ServicesPage">
+                <Button variant={"solid"}>View All</Button>
+              </Link>
             </Flex>
           ))}
         </Slider>
