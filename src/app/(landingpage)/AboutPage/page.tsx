@@ -70,12 +70,12 @@ const Aboutpage = () => {
           <LeftAnimation duration={0.5}>
             <Box w={{ base: "100%", md: "454px" }}>
               <Heading
-                fontSize={"30px"}
+                fontSize={{ base: "25px", xl: "30px" }}
                 lineHeight={"2.1rem"}
                 fontWeight={"500"}
               >
                 Why should you take advantage
-                <br /> of
+                <chakra.br display={{ base: "none", xl: "flex" }} /> of
                 <chakra.span color={"primary"}> Sendeet Logistics</chakra.span>
                 <Arrowbend pos={"absolute"} pt="1.2rem" pr="1.5rem" />
               </Heading>
