@@ -33,7 +33,11 @@ const RegisterationPage = () => {
   };
   return (
     <Box my={{ base: "8rem", xl: "10rem" }}>
-      <Container maxW={"500px"} textAlign={{ base: "left", md: "center" }}>
+      <Container
+        px={{ base: "2rem", xl: "0rem" }}
+        maxW={"500px"}
+        textAlign={{ base: "left", md: "center" }}
+      >
         <Stack gap="1.5rem">
           {" "}
           <Text

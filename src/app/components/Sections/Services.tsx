@@ -87,11 +87,12 @@ const Services = () => {
               <Flex
                 alignItems={{ base: "center", xl: "left" }}
                 justifyContent={{ base: "center", xl: "left" }}
+                mt={{ base: "1rem", lg: "1rem" }}
               >
                 <Button
                   h="40px"
                   w={{ base: "100%", xl: "250px" }}
-                  px="1rem"
+                  mx={{ base: "2rem", lg: "1rem" }}
                   variant="solid"
                 >
                   Schedule a Delivery/Pickup

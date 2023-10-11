@@ -11,8 +11,8 @@ const MobileNav = () => {
       py={5}
       display={{ xl: "none" }}
       w="100%"
-      pos={"fixed"}
-      zIndex={50}
+      pos={"sticky"}
+      zIndex={300}
     >
       <Flex
         flexDir={"column"}
@@ -20,7 +20,6 @@ const MobileNav = () => {
         justifyContent={"center"}
         gap={"1rem"}
         color={"#1F1F1F"}
-        mt="5rem"
       >
         {NAV_DATA.map((item, index) => (
           <Link key={index} href={item.href} _hover={{ textDecor: "none" }}>

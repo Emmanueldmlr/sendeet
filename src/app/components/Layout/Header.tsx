@@ -21,9 +21,8 @@ const Header = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
 
   return (
-    <>
+    <Flex flexDir={"column"} pos={"fixed"} w="100%" zIndex={800}>
       <Flex
-        pos={"fixed"}
         bg={"#fff"}
         flexDir={"row"}
         alignItems={"center"}
@@ -31,7 +30,6 @@ const Header = () => {
         w="100%"
         padding={{ base: "20px 30px", xl: "20px 120px" }}
         // borderBottom={"2px solid #eee"}
-        zIndex={100}
       >
         <Flex>
           <Link href="/">
@@ -66,10 +64,8 @@ const Header = () => {
           </Link>
         </HStack>
       </Flex>
-
       <Collapse in={isOpen} animateOpacity>
         <Stack
-          mt={"0.3rem"}
           color="white"
           bg="teal.500"
           display={{ xl: "none" }}
@@ -79,7 +75,7 @@ const Header = () => {
           <MobileNav />
         </Stack>
       </Collapse>
-    </>
+    </Flex>
   );
 };
 
