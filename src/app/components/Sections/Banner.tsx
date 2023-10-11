@@ -18,6 +18,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 const Banner = () => {
   return (
     <Flex
+      mt="5rem"
       px="0.2rem"
       backgroundImage="url('/Asset/Bannerbg.png')"
       backgroundPosition={"center"}

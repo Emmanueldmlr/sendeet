@@ -30,22 +30,22 @@ const FixedLink = () => {
       <Tooltip
         textAlign={"center"}
         hasArrow
-        label={
-          <>
-            <chakra.span
-              color="primary"
-              fontFamily={"Outfit"}
-              fontSize={{ base: "sm", xl: "24px" }}
-            >
-              having trouble?
-            </chakra.span>
-            <br />
-            <Text fontSize={{ base: "xs", xl: "14px" }} fontWeight={"500"}>
-              Let us help you.
-              <br /> Click to chat with us in private.
-            </Text>
-          </>
-        }
+        // label={
+        //   <>
+        //     <chakra.span
+        //       color="primary"
+        //       fontFamily={"Outfit"}
+        //       fontSize={{ base: "sm", xl: "24px" }}
+        //     >
+        //       having trouble?
+        //     </chakra.span>
+        //     <br />
+        //     <Text fontSize={{ base: "xs", xl: "14px" }} fontWeight={"500"}>
+        //       Let us help you.
+        //       <br /> Click to chat with us in private.
+        //     </Text>
+        //   </>
+        // }
         size={"xl"}
         p="2rem"
         color={"#4B4B4B"}

@@ -23,6 +23,7 @@ const Header = () => {
   return (
     <>
       <Flex
+        pos={"fixed"}
         bg={"#fff"}
         flexDir={"row"}
         alignItems={"center"}
@@ -30,6 +31,7 @@ const Header = () => {
         w="100%"
         padding={{ base: "20px 30px", xl: "20px 120px" }}
         // borderBottom={"2px solid #eee"}
+        zIndex={100}
       >
         <Flex>
           <Link href="/">
@@ -54,10 +56,14 @@ const Header = () => {
 
         <DesktopNav />
         <HStack display={{ base: "none", xl: "flex" }}>
-          <Button variant="outline" color={"primary"}>
-            Sign In
-          </Button>
-          <Button variant="solid">Register</Button>
+          <Link href="/SignIn">
+            <Button variant="outline" color={"primary"}>
+              Sign In
+            </Button>
+          </Link>
+          <Link href="/Register">
+            <Button variant="solid">Register</Button>
+          </Link>
         </HStack>
       </Flex>
 

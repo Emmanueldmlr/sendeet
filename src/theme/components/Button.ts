@@ -43,10 +43,14 @@ export const Button = {
       color: "white",
       fontSize: "md",
       _hover: {
-        bg: "",
+        bg: "transparent",
+        color: "#1F1F1F",
+        borderColor: "#E1E1E1",
       },
       _active: {
-        bg: "primary",
+        bg: "transparent",
+        borderColor: "#C27123",
+        color: "#C27123",
       },
 
       px: "44px",

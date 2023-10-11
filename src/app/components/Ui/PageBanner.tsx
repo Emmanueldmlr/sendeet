@@ -5,6 +5,7 @@ import ButtomAnimation from "../Animation/ButtomAnimation";
 const PageBanner = ({ bgImage, title }: { bgImage: string; title: string }) => {
   return (
     <Flex
+      mt="5rem"
       px="0.2rem"
       backgroundImage={`url('/Asset/${bgImage}')`}
       backgroundPosition={"center"}

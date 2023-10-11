@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { ChakraLayout } from "./components/ChakraLayout";
+import FixedLink from "./components/Ui/FixedLink";
 
 export const metadata: Metadata = {
   title: "Sendeet Logistics",

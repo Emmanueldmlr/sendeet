@@ -2,16 +2,17 @@ export const Input = {
   variants: {
     filled: {
       field: {
-        bg: 'white',
+        bg: "white",
         _focus: {
-          bg: 'white',
-          borderColor: 'white',
+          bg: "white",
+          borderColor: "white",
+          outline: "none",
         },
         _hover: {
-          bg: 'white',
+          bg: "white",
         },
-        color: 'black',
+        color: "black",
       },
     },
   },
-}
+};
