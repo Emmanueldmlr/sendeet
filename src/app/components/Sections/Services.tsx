@@ -61,6 +61,7 @@ const Services = () => {
                       alignItems={"left"}
                       justifyContent={"left"}
                       gap={"1rem"}
+                      px={{ base: "1.9rem", lg: "0rem" }}
                     >
                       <HStack alignItems={"none"} gap="1rem">
                         <Icon as={item.icon} fontSize={"30px"} />
