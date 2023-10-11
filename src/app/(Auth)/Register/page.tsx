@@ -111,7 +111,7 @@ const RegisterationPage = () => {
               </FormLabel>
 
               <InputGroup size="lg">
-                <InputLeftAddon children="+234" />
+                <InputLeftAddon>+234</InputLeftAddon>
                 <Input
                   name=""
                   type="number"
