@@ -15,7 +15,6 @@ import {
   Button,
 } from "@chakra-ui/react";
 import React from "react";
-import { form } from "sanity/desk";
 import DashHeader from "../Dashboard/DashHeader";
 import PageWrapper from "../Dashboard/PageWrapper";
 import Stepper from "../Ui/Stepper";
