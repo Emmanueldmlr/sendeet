@@ -29,9 +29,8 @@ const SidebarItem = ({ items, theindex }: { items: any; theindex: number }) => {
   const ProfileActive = pathname.includes("/dashboard/profile/");
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack spacing={4} onClick={children && onToggle} key={theindex}>
       <Flex
-        key={theindex}
         as={Link}
         _hover={{ textDecor: "none", bg: "rgb(71, 71, 71)", w: "100%" }}
         href={route}
