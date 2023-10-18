@@ -20,7 +20,7 @@ import { MdOutlineNotificationsActive } from "react-icons/md";
 const Homepage = () => {
   return (
     <Box>
-      <PageWrapper>
+      <PageWrapper gap="3.5rem">
         <DashHeader />
         <Box w="100%" h="142px">
           <Flex
@@ -31,7 +31,7 @@ const Homepage = () => {
             p="24px 16px"
             bg="#FFF3E8"
             borderRadius={"4px"}
-            mt={{ base: "1.5rem", lg: "" }}
+            mt={{ base: "1.5rem", lg: "0rem" }}
           >
             <Stack fontWeight={"500"}>
               <Heading
@@ -61,14 +61,14 @@ const Homepage = () => {
           flexDir={{ base: "column", lg: "row" }}
           alignItems={"center"}
           justifyContent={"center"}
-          gap="1rem"
-          mx={{ base: "1rem", lg: "" }}
+          gap={{ base: "1rem", lg: "3.5rem" }}
+          mx={{ base: "1rem", lg: "0rem" }}
         >
           {DashHomeData.map((item, index) => (
             <Stack
-              w={{ base: "100%", xl: "400px" }}
+              w={{ base: "100%", xl: "450px" }}
               gap={index === 1 ? "16px" : "16px"}
-              p="16px 24px"
+              p="16px 20px"
               key={index}
               boxShadow={
                 " 0px 2px 4px 0px rgba(0, 0, 0, 0.04), 0px 1px 1px 0px rgba(0, 0, 0, 0.02)"

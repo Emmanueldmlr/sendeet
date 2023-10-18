@@ -82,8 +82,8 @@ const MobileDrawer = () => {
           onClose={onClose}
           size={"full"}
         >
-          <DrawerContent bg="transparent" boxShadow={"0px"} onClick={onClose}>
-            <DrawerBody p="0px" w="0px" onClick={onClose}>
+          <DrawerContent bg="transparent" boxShadow={"0px"}>
+            <DrawerBody p="0px" w="0px">
               <Sidebar
                 display={{ base: "flex", xl: "none" }}
                 onclick={onClose}

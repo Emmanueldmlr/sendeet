@@ -57,7 +57,7 @@ const FixedLink = () => {
           justifyContent={"space-between"}
           background={"transparent"}
           color="primary"
-          p={{ base: "5px", xl: "15px" }}
+          p={{ base: "10px", xl: "15px" }}
           borderRadius={"12px"}
           // boxShadow={"2xl"}
           gap={"40px"}

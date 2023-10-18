@@ -13,7 +13,7 @@ const DashboardWrapper = ({ children }: { children: React.ReactNode }) => {
         w="full"
         p={{ base: "0rem", xl: "2.5rem" }}
         py="12"
-        pr={{ base: 5, lg: "8" }}
+        // pr={{ base: 5, lg: "8" }}
       >
         {children}
       </Box>

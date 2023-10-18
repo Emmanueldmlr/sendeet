@@ -5,7 +5,8 @@ import { Avatar } from "./Avatar";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { Link } from "./Link";
-
+import { checkboxTheme } from "./Checkbox";
+import { progressTheme } from "./Progress";
 // const CustomSteps = {
 //   ...StepsStyleConfig,
 //   baseStyle: (props: StyleFunctionProps) => {
@@ -27,5 +28,7 @@ export const components: ChakraTheme["components"] = {
   Button,
   Input,
   Link,
+  Checkbox: checkboxTheme,
+  Progress: progressTheme,
   // Steps: CustomSteps,
 };

@@ -1,4 +1,10 @@
-import { MdDeveloperBoard } from "react-icons/md";
+import {
+  MdDeveloperBoard,
+  MdOutlineEditNotifications,
+  MdPersonAddAlt,
+  MdPublishedWithChanges,
+  MdSecurity,
+} from "react-icons/md";
 import Track from "../../../public/Icons/Track";
 import Delivery from "../../../public/Icons/Delivery";
 import Profile from "../../../public/dashicon/Profile";
@@ -6,6 +12,8 @@ import Wallet from "../../../public/dashicon/Wallet";
 import Apis from "../../../public/dashicon/APIS";
 import ColouredDelivery from "../../../public/Icons/ColouredDelivery";
 import Callgreen from "../../../public/Icons/Callgreen";
+import Earn from "../../../public/Icons/Earn";
+import { TbTruckDelivery } from "react-icons/tb";
 
 export const DashboardNavData = [
   {
@@ -30,8 +38,39 @@ export const DashboardNavData = [
   },
   {
     label: "Profile",
-    route: "/dashboard/profile",
     icon: Profile,
+    children: [
+      {
+        label: "Personal Information",
+        href: "/dashboard/profile/PersonalInfo",
+        icon: MdPersonAddAlt,
+      },
+      {
+        label: "Notification Settings",
+        href: "/dashboard/profile/NotificationSettings",
+        icon: MdOutlineEditNotifications,
+      },
+      {
+        label: "Change Plan",
+        href: "/dashboard/profile/ChangePlan",
+        icon: MdPublishedWithChanges,
+      },
+      {
+        label: "Sign In and security ",
+        href: "/dashboard/profile/SignInAndSecurity",
+        icon: MdSecurity,
+      },
+      {
+        label: "Delivery History",
+        href: "/dashboard/profile/DeliveryHistory",
+        icon: TbTruckDelivery,
+      },
+      {
+        label: "Refer and Earn",
+        href: "/dashboard/profile/ReferandEarn",
+        icon: Earn,
+      },
+    ],
   },
   {
     label: "APIs",

@@ -49,7 +49,7 @@ const Sidebar = ({ display, onclick }: { display: any; onclick?: any }) => {
       </Flex>
       <Stack alignItems={"left"} justifyContent={"left"} gap={"3rem"}>
         {DashboardNavData.map((i, index) => (
-          <SidebarItem key={index} items={i} />
+          <SidebarItem theindex={index} items={i} />
         ))}
       </Stack>
       <Stack gap="1rem">
