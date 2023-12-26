@@ -44,7 +44,9 @@ const GetDeliveryPrices = ({ form, setForm }: { form: any; setForm: any }) => {
         >
           <HStack alignItems={"left"} gap="2rem">
             <Stack>
-              <Text>Estimated Pickup Date :</Text>
+              <Text fontSize={{ base: "6px", xl: "15px" }}>
+                Estimated Pickup Date :
+              </Text>
               <Text>Mon, Sep 11th, from 8 am - 2 pm</Text>
               <Text>Estimated Pickup Date :</Text>
               <Text>Mon, Sep 11th, from 8 am - 2 pm</Text>
