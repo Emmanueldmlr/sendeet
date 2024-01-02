@@ -1,5 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "@/redux/features/auth/auth-slice";
+import { useLoginMutation } from "@/redux/features/auth/authApiSlice";
 import {
   Box,
   Button,
@@ -16,19 +20,113 @@ import {
   Link,
   InputGroup,
   InputRightElement,
+  Spinner,
+  useToast,
 } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 import { usePathname } from "next/navigation";
-const SigninPage = () => {
-  const pathname = usePathname();
 
+export type LoginAuthResponse = {
+  data: {
+    data: string;
+  };
+};
+const SigninPage = () => {
+  const toast = useToast();
+  const pathname = usePathname();
   const Route = pathname === "/SignIn" ? "/Register" : "/SignIn";
   const [show, setShow] = useState(false);
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+  const router = useRouter();
+  const userRef = useRef<HTMLInputElement | null>(null);
+  const errRef = useRef<HTMLInputElement | null>(null);
   const handleShow = () => {
     setShow(!show);
   };
+
+  const [login, { isLoading }] = useLoginMutation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    userRef?.current?.focus();
+  }, []);
+  useEffect(() => {
+    setErrMsg("");
+  }, [user, password]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const userData = await login({
+        user,
+        password,
+      }).unwrap();
+      dispatch(setCredentials({ ...userData, user }));
+      setUser("");
+      setPassword("");
+
+      toast({
+        title: "Login Successful.",
+        description:
+          "Welcome back! You have successfully logged in to your account.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      router.push("/dashboard");
+    } catch (err) {
+      const errorResponse = err as { response?: { status: boolean | number } };
+      if (!errorResponse?.response) {
+        setErrMsg("No Server Response");
+
+        toast({
+          title: "No Server Response",
+          description: "No response",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      } else if (errorResponse.response.status === 400) {
+        setErrMsg("Missing Username or Password");
+        toast({
+          title: "Field missing",
+          description: "Missing Username or Password",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      } else if (errorResponse.response.status === false) {
+        setErrMsg("Unauthorized");
+        toast({
+          title: "Unauthorized",
+          description: "Please you dont have an account yet",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      } else {
+        setErrMsg("Login Failed");
+        toast({
+          title: "Lofin Failed",
+          description: "Missing Username or Password",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      }
+      errRef.current?.focus();
+    }
+  };
+  const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setUser(e.target.value);
+
+  const handlePasswordInput = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setPassword(e.target.value);
+
   return (
     <Box mt={{ base: "8rem", xl: "10rem" }}>
       <Container
@@ -77,6 +175,7 @@ const SigninPage = () => {
             <Box h="1px" bg="#CACACA" w="100%" />
           </HStack>
           <chakra.form
+            onSubmit={handleSubmit}
             flexDir={"column"}
             display={"flex"}
             alignItems={"center"}
@@ -92,7 +191,12 @@ const SigninPage = () => {
                 Email
               </FormLabel>
               <Input
-                name="email"
+                required
+                ref={userRef}
+                value={user}
+                id="username"
+                onChange={handleUserInput}
+                // name="email"
                 type="email"
                 placeholder="Enter your Email Address"
                 fontSize={"sm"}
@@ -115,7 +219,9 @@ const SigninPage = () => {
                 justifyContent={"center"}
               >
                 <Input
-                  name="password"
+                  required
+                  value={password}
+                  id="password"
                   type={show ? "text" : "password"}
                   placeholder="Enter your password"
                   fontSize={"sm"}
@@ -125,6 +231,7 @@ const SigninPage = () => {
                   bg={"#fff"}
                   _placeholder={{ color: "#C6C5C5", fontSize: "sm" }}
                   _hover={{ border: "0.662px solid  #EEE" }}
+                  onChange={handlePasswordInput}
                 />
                 <InputRightElement>
                   <Button variant={"unstyled"} size="lg" onClick={handleShow}>
@@ -149,8 +256,6 @@ const SigninPage = () => {
             </Flex>
 
             <Button
-              as={Link}
-              href="/dashboard"
               variant={"solid"}
               size={"xl"}
               color="#fff"
@@ -158,7 +263,7 @@ const SigninPage = () => {
               w="100%"
               _hover={{ textDecor: "none" }}
             >
-              Log In
+              {isLoading ? <Spinner /> : "Log In"}
             </Button>
           </chakra.form>
         </Stack>
