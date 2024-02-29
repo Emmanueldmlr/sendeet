@@ -5,38 +5,37 @@ import {
   Heading,
   chakra,
   Button,
-  HStack,
   FormControl,
   FormLabel,
   Input,
   InputGroup,
   Flex,
   InputRightElement,
-  InputLeftAddon,
   Text,
   Box,
   Link,
+  useToast,
 } from "@chakra-ui/react";
 
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/navigation";
 
 const RegisterationPage = () => {
+  const toast = useToast();
   const pathname = usePathname();
 
   const Route = pathname === "/SignIn" ? "/Register" : "/SignIn";
   const [show, setShow] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [errMsg, setErrMsg] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const router = useRouter();
+
+  const errRef = useRef<HTMLInputElement | null>(null);
 
   //functions
   const handleShow = () => {
@@ -46,7 +45,7 @@ const RegisterationPage = () => {
     e.preventDefault();
     try {
       const res = await fetch(
-        "http://dev-app.dailys.market:37555/api/auth/user/sign-up/",
+        "http://dev-app.dailys.market:37555/api/auth/reset-password/",
         {
           method: "POST",
           headers: {
@@ -54,18 +53,62 @@ const RegisterationPage = () => {
             APIKey: "80109414-c38e-4bed-b251-190ee1f88190",
           },
           body: JSON.stringify({
-            firstName,
-            lastName,
-            phoneNumber,
-            email,
+            username: email,
             password,
+            confirmPassword,
           }),
         }
       );
-      console.log(res);
-      router.push("/SignIn");
-    } catch {
-      return { success: false };
+      toast({
+        title: "Login Successful.",
+        description:
+          "Welcome back! You have successfully logged in to your account.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      router.push("/dashboard");
+    } catch (err) {
+      const errorResponse = err as { response?: { status: boolean | number } };
+      if (!errorResponse?.response) {
+        setErrMsg("No Server Response");
+
+        toast({
+          title: "No Server Response",
+          description: "No response",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      } else if (errorResponse.response.status === 400) {
+        setErrMsg("Missing Username or Password");
+        toast({
+          title: "Field missing",
+          description: "Missing Username or Password",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      } else if (errorResponse.response.status === false) {
+        setErrMsg("Unauthorized");
+        toast({
+          title: "Unauthorized",
+          description: "Please you dont have an account yet",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      } else {
+        setErrMsg("Login Failed");
+        toast({
+          title: "Login Failed",
+          description: "Missing Username or Password",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      }
+      errRef.current?.focus();
     }
   };
   return (
@@ -82,7 +125,7 @@ const RegisterationPage = () => {
             fontWeight={"500"}
             fontSize={{ base: "18px", md: "28px" }}
           >
-            Create your Sendeet account
+            Reset Your Password
           </Text>
           <Heading
             display={{ base: "flex", md: "none" }}
@@ -110,69 +153,6 @@ const RegisterationPage = () => {
             onSubmit={handleSubmit}
             // ref={formRef}
           >
-            <Flex flexDir={{ base: "column", md: "row" }} gap="1.5rem" w="100%">
-              <FormControl>
-                <FormLabel color="#1F1F1F" fontFamily={"Outfit"}>
-                  First Name
-                </FormLabel>
-                <Input
-                  name="First name"
-                  type="text"
-                  placeholder="First name"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  fontSize={"sm"}
-                  size="lg"
-                  borderRadius="4px"
-                  border="0.662px  solid  #EEE"
-                  bg={"#fff"}
-                  _placeholder={{ color: "#C6C5C5", fontSize: "sm" }}
-                  _hover={{ border: "0.662px solid  #EEE" }}
-                />
-              </FormControl>{" "}
-              <FormControl>
-                <FormLabel color="#1F1F1F" fontFamily={"Outfit"}>
-                  Last Name
-                </FormLabel>
-                <Input
-                  name="Last Name"
-                  type="text"
-                  placeholder="Last Name"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  fontSize={"sm"}
-                  size="lg"
-                  borderRadius="4px"
-                  border="0.662px  solid  #EEE"
-                  bg={"#fff"}
-                  _placeholder={{ color: "#C6C5C5", fontSize: "sm" }}
-                  _hover={{ border: "0.662px solid  #EEE" }}
-                />
-              </FormControl>
-            </Flex>
-            <FormControl>
-              <FormLabel color="#1F1F1F" fontFamily={"Outfit"}>
-                Phone Number
-              </FormLabel>
-
-              <InputGroup size="lg">
-                <InputLeftAddon>+234</InputLeftAddon>
-                <Input
-                  name=""
-                  type="number"
-                  placeholder="Enter your Phone Number"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  fontSize={"sm"}
-                  size="lg"
-                  borderRadius="4px"
-                  border="0.662px  solid  #EEE"
-                  bg={"#fff"}
-                  _placeholder={{ color: "#C6C5C5", fontSize: "sm" }}
-                  _hover={{ border: "0.662px solid  #EEE" }}
-                />
-              </InputGroup>
-            </FormControl>
             <FormControl>
               <FormLabel color="#1F1F1F" fontFamily={"Outfit"}>
                 Email
@@ -260,17 +240,6 @@ const RegisterationPage = () => {
                 </InputRightElement>
               </InputGroup>
             </FormControl>
-            {/* <Flex flexDir={"row"} alignItems={"right"} justifyContent={"right"}>
-              <Heading
-                fontSize={"16px"}
-                fontWeight={"500"}
-                color={"primary"}
-                as={Link}
-              >
-                Reset Password
-              </Heading>
-            </Flex> */}
-
             <Button
               variant={"solid"}
               size={"xl"}
@@ -278,7 +247,7 @@ const RegisterationPage = () => {
               type="submit"
               w="100%"
             >
-              Sign Up
+              Reset Password
             </Button>
           </chakra.form>
         </Stack>
