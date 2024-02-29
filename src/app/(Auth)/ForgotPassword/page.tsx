@@ -38,7 +38,7 @@ const SigninPage = () => {
   const pathname = usePathname();
   const Route = pathname === "/SignIn" ? "/Register" : "/SignIn";
   const [show, setShow] = useState(false);
-  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const router = useRouter();
@@ -56,18 +56,13 @@ const SigninPage = () => {
   }, []);
   useEffect(() => {
     setErrMsg("");
-  }, [user, password]);
+  }, [email, password]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      // const userData = await login({
-      //   user,
-      //   password,
-      // }).unwrap();
-      // dispatch(setCredentials({ ...userData, user }));
       const res = await fetch(
-        "http://dev-app.dailys.market:37555/api/auth/user/sign-up/",
+        "http://dev-app.dailys.market:37555/api/auth/forgot-password/",
         {
           method: "POST",
           headers: {
@@ -75,14 +70,12 @@ const SigninPage = () => {
             APIKey: "80109414-c38e-4bed-b251-190ee1f88190",
           },
           body: JSON.stringify({
-            username: user,
-            password,
+            username: email,
           }),
         }
       );
-      setUser("");
+      setEmail("");
       setPassword("");
-
       toast({
         title: "Login Successful.",
         description:
@@ -91,7 +84,7 @@ const SigninPage = () => {
         duration: 9000,
         isClosable: true,
       });
-      router.push("/dashboard");
+      router.push("/ResetPassword");
     } catch (err) {
       const errorResponse = err as { response?: { status: boolean | number } };
       if (!errorResponse?.response) {
@@ -125,7 +118,7 @@ const SigninPage = () => {
       } else {
         setErrMsg("Login Failed");
         toast({
-          title: "Lofin Failed",
+          title: "Login Failed",
           description: "Missing Username or Password",
           status: "error",
           duration: 9000,
@@ -134,14 +127,6 @@ const SigninPage = () => {
       }
       errRef.current?.focus();
     }
-  };
-  const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setUser(e.target.value);
-
-  const handlePasswordInput = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setPassword(e.target.value);
-  const handlePasswordReset = () => {
-    router.push("/ForgotPassword");
   };
 
   return (
@@ -158,7 +143,7 @@ const SigninPage = () => {
             fontWeight={"500"}
             fontSize={{ base: "18px", md: "28px" }}
           >
-            Log in to your Sendeet account
+            Forgot Password
           </Text>
           <Heading
             display={{ base: "flex", md: "none" }}
@@ -173,24 +158,6 @@ const SigninPage = () => {
               {pathname === "/SignIn" ? "Create One" : "Login here"}
             </chakra.span>
           </Heading>
-          <Button
-            borderRadius={"50px"}
-            border={"1px solid #CACACA "}
-            color={"#1F1F1F"}
-            variant={"outline"}
-            fontSize={"sm"}
-            size={"xl"}
-            leftIcon={<FcGoogle size="20px" />}
-          >
-            Continue with Google
-          </Button>
-          <HStack>
-            <Box h="1px" bg="#CACACA" w="100%" />
-            <Heading fontSize={"16px"} fontWeight={"500"} color="#8E8E8E">
-              OR
-            </Heading>
-            <Box h="1px" bg="#CACACA" w="100%" />
-          </HStack>
           <chakra.form
             onSubmit={handleSubmit}
             flexDir={"column"}
@@ -209,9 +176,9 @@ const SigninPage = () => {
               <Input
                 required
                 ref={userRef}
-                value={user}
+                value={email}
                 id="username"
-                onChange={handleUserInput}
+                onChange={(e) => setEmail(e.target.value)}
                 name="email"
                 type="email"
                 placeholder="Enter your Email Address"
@@ -224,54 +191,6 @@ const SigninPage = () => {
                 _hover={{ border: "0.662px solid  #EEE" }}
               />
             </FormControl>
-            <FormControl>
-              <FormLabel color="#1F1F1F" fontFamily={"Outfit"}>
-                Password
-              </FormLabel>
-
-              <InputGroup
-                as={Flex}
-                alignItems={"center"}
-                justifyContent={"center"}
-              >
-                <Input
-                  required
-                  value={password}
-                  id="password"
-                  type={show ? "text" : "password"}
-                  placeholder="Enter your password"
-                  fontSize={"sm"}
-                  size="lg"
-                  borderRadius="4px"
-                  border="0.662px  solid  #EEE"
-                  bg={"#fff"}
-                  _placeholder={{ color: "#C6C5C5", fontSize: "sm" }}
-                  _hover={{ border: "0.662px solid  #EEE" }}
-                  onChange={handlePasswordInput}
-                />
-                <InputRightElement>
-                  <Button variant={"unstyled"} size="lg" onClick={handleShow}>
-                    {show ? (
-                      <AiFillEyeInvisible color="#4B4B4B" />
-                    ) : (
-                      <AiFillEye color="#4B4B4B" />
-                    )}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
-            <Flex flexDir={"row"} alignItems={"right"} justifyContent={"right"}>
-              <Heading
-                fontSize={"16px"}
-                fontWeight={"500"}
-                color={"primary"}
-                as={Link}
-                onClick={() => handlePasswordReset()}
-              >
-                Reset Password
-              </Heading>
-            </Flex>
-
             <Button
               variant={"solid"}
               size={"xl"}
@@ -280,7 +199,7 @@ const SigninPage = () => {
               w="100%"
               _hover={{ textDecor: "none" }}
             >
-              {isLoading ? <Spinner /> : "Log In"}
+              {isLoading ? <Spinner /> : "Submit"}
             </Button>
           </chakra.form>
         </Stack>
