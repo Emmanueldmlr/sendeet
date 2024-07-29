@@ -31,6 +31,11 @@ const RegisterationPage = () => {
   const handleShow = () => {
     setShow(!show);
   };
+
+  const handleSubmit = () => {
+    console.log("submit oooo");
+  }
+
   return (
     <Box my={{ base: "8rem", xl: "10rem" }}>
       <Container
@@ -70,7 +75,7 @@ const RegisterationPage = () => {
             gap="1.5rem"
             w="100%"
             bg={"#fff"}
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             // ref={formRef}
           >
             <Flex flexDir={{ base: "column", md: "row" }} gap="1.5rem" w="100%">
@@ -79,7 +84,7 @@ const RegisterationPage = () => {
                   First Name
                 </FormLabel>
                 <Input
-                  name="Full name"
+                  name="fullName"
                   type="text"
                   placeholder="Full name"
                   fontSize={"sm"}
@@ -96,8 +101,8 @@ const RegisterationPage = () => {
                   Last Name
                 </FormLabel>
                 <Input
-                  name="email"
-                  type="email"
+                  name="lastName"
+                  type="text"
                   placeholder="Last Name"
                   fontSize={"sm"}
                   size="lg"
