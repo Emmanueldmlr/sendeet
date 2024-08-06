@@ -1,7 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import Sidebar from "./Sidebar";
-import FixedLink from "../Ui/FixedLink";
+import FixedLink from "../ui/FixedLink";
 import MobileDrawer from "./MobileDrawer";
 
 const DashboardWrapper = ({ children }: { children: React.ReactNode }) => {

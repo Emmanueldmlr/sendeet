@@ -1,5 +1,5 @@
-import DashHeader from "@/app/components/Dashboard/DashHeader";
-import PageWrapper from "@/app/components/Dashboard/PageWrapper";
+import DashHeader from "@/app/components/dashboard/DashHeader";
+import PageWrapper from "@/app/components/dashboard/PageWrapper";
 import { Box, Flex, Heading, Image, Link, Stack, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 const OptionData = [

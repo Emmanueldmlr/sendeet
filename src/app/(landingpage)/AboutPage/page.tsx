@@ -1,7 +1,7 @@
 "use client";
 
 import { ABOUT_DATA, TakeAdvantageData } from "@/app/Data/PagesData";
-import PageBanner from "@/app/components/Ui/PageBanner";
+import PageBanner from "@/app/components/ui/PageBanner";
 import {
   Box,
   Container,
@@ -17,8 +17,8 @@ import {
 
 import React from "react";
 import Arrowbend from "../../../../public/Icons/Arrowbend";
-import LeftAnimation from "@/app/components/Animation/LeftAnimation";
-import RightAnimation from "@/app/components/Animation/RightAnimation";
+import LeftAnimation from "@/app/components/animation/LeftAnimation";
+import RightAnimation from "@/app/components/animation/RightAnimation";
 
 const Aboutpage = () => {
   return (

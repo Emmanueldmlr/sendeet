@@ -1,5 +1,5 @@
 import React from "react";
-import SectionWrapper from "../Ui/SectionWrapper";
+import SectionWrapper from "../ui/SectionWrapper";
 import {
   Accordion,
   AccordionButton,
@@ -16,7 +16,7 @@ import {
   chakra,
   Link,
 } from "@chakra-ui/react";
-import ButtomAnimation from "../Animation/ButtomAnimation";
+import ButtomAnimation from "../animation/ButtomAnimation";
 import { FAQS_DATA } from "@/app/Data/SectionDatas";
 import { IoMdArrowDown } from "react-icons/io";
 

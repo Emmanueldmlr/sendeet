@@ -13,10 +13,10 @@ import {
   chakra,
 } from "@chakra-ui/react";
 import React from "react";
-import SectionWrapper from "../Ui/SectionWrapper";
+import SectionWrapper from "../ui/SectionWrapper";
 import { SERVICES } from "@/app/Data/SectionDatas";
-import LeftAnimation from "../Animation/LeftAnimation";
-import RightAnimation from "../Animation/RightAnimation";
+import LeftAnimation from "../animation/LeftAnimation";
+import RightAnimation from "../animation/RightAnimation";
 
 const Services = () => {
   return (
