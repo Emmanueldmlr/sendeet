@@ -1,18 +1,12 @@
 "use client";
+import { Formik, Form } from "formik";
 import {
   Container,
   Stack,
   Heading,
   chakra,
   Button,
-  HStack,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
   Flex,
-  InputRightElement,
-  InputLeftAddon,
   Text,
   Box,
   Link,
@@ -20,17 +14,38 @@ import {
 
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
+import CustomInput from "@/app/components/ui/CustomInput";
+import { RegistrationFormValues } from "./types";
+import { initialRegistrationFormValues } from "./data";
+import { registrationFormValidationSchema } from "./validations";
+import apiRequest from "@/utils/api";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
-const RegisterationPage = () => {
+const RegistrationPage = () => {
+  const [loading, setLoading] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const Route = pathname === "/SignIn" ? "/Register" : "/SignIn";
-  const [show, setShow] = useState(false);
-  const handleShow = () => {
-    setShow(!show);
+
+  const handleSubmit = async (values: RegistrationFormValues) => {
+    setLoading(true);
+    const response = await apiRequest(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/auth/user/sign-up`,
+      "POST",
+      values
+    );
+    setLoading(false);
+
+    if (response.data.status) {
+      router.push("/SignIn");
+      toast.success("Registration successful. Proceed to Log in");
+    }
+
+    toast.error(response.data.error_message);
   };
+
   return (
     <Box my={{ base: "8rem", xl: "10rem" }}>
       <Container
@@ -39,7 +54,6 @@ const RegisterationPage = () => {
         textAlign={{ base: "left", md: "center" }}
       >
         <Stack gap="1.5rem">
-          {" "}
           <Text
             color="#1F1F1F"
             fontWeight={"500"}
@@ -58,185 +72,101 @@ const RegisterationPage = () => {
               ? " Do Not Have an Account?"
               : "Have an Account?"}
             <chakra.span pl="10px" color={"primary"} as={Link} href={Route}>
-              {" "}
               {pathname === "/SignIn" ? "Create One" : "Login here"}
             </chakra.span>
           </Heading>
-          <chakra.form
-            flexDir={"column"}
-            display={"flex"}
-            alignItems={"center"}
-            justifyContent={"center"}
-            gap="1.5rem"
-            w="100%"
-            bg={"#fff"}
-            // onSubmit={handleSubmit}
-            // ref={formRef}
+
+          <Formik
+            initialValues={initialRegistrationFormValues}
+            validationSchema={registrationFormValidationSchema}
+            onSubmit={handleSubmit}
           >
-            <Flex flexDir={{ base: "column", md: "row" }} gap="1.5rem" w="100%">
-              <FormControl>
-                <FormLabel color="#1F1F1F" fontFamily={"Outfit"}>
-                  First Name
-                </FormLabel>
-                <Input
-                  name="Full name"
-                  type="text"
-                  placeholder="Full name"
-                  fontSize={"sm"}
-                  size="lg"
-                  borderRadius="4px"
-                  border="0.662px  solid  #EEE"
-                  bg={"#fff"}
-                  _placeholder={{ color: "#C6C5C5", fontSize: "sm" }}
-                  _hover={{ border: "0.662px solid  #EEE" }}
-                />
-              </FormControl>{" "}
-              <FormControl>
-                <FormLabel color="#1F1F1F" fontFamily={"Outfit"}>
-                  Last Name
-                </FormLabel>
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder="Last Name"
-                  fontSize={"sm"}
-                  size="lg"
-                  borderRadius="4px"
-                  border="0.662px  solid  #EEE"
-                  bg={"#fff"}
-                  _placeholder={{ color: "#C6C5C5", fontSize: "sm" }}
-                  _hover={{ border: "0.662px solid  #EEE" }}
-                />
-              </FormControl>
-            </Flex>
-            <FormControl>
-              <FormLabel color="#1F1F1F" fontFamily={"Outfit"}>
-                Phone Number
-              </FormLabel>
-
-              <InputGroup size="lg">
-                <InputLeftAddon>+234</InputLeftAddon>
-                <Input
-                  name=""
-                  type="number"
-                  placeholder="Enter your Phone Number"
-                  fontSize={"sm"}
-                  size="lg"
-                  borderRadius="4px"
-                  border="0.662px  solid  #EEE"
-                  bg={"#fff"}
-                  _placeholder={{ color: "#C6C5C5", fontSize: "sm" }}
-                  _hover={{ border: "0.662px solid  #EEE" }}
-                />
-              </InputGroup>
-            </FormControl>
-            <FormControl>
-              <FormLabel color="#1F1F1F" fontFamily={"Outfit"}>
-                Email
-              </FormLabel>
-              <Input
-                name="email"
-                type="email"
-                placeholder="Enter your Email Address"
-                fontSize={"sm"}
-                size="lg"
-                borderRadius="4px"
-                border="0.662px  solid  #EEE"
-                bg={"#fff"}
-                _placeholder={{ color: "#C6C5C5", fontSize: "sm" }}
-                _hover={{ border: "0.662px solid  #EEE" }}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel color="#1F1F1F" fontFamily={"Outfit"}>
-                Password
-              </FormLabel>
-
-              <InputGroup
-                as={Flex}
-                alignItems={"center"}
-                justifyContent={"center"}
-              >
-                <Input
-                  name="password"
-                  type={show ? "text" : "password"}
-                  placeholder="Enter your password"
-                  fontSize={"sm"}
-                  size="lg"
-                  borderRadius="4px"
-                  border="0.662px  solid  #EEE"
-                  bg={"#fff"}
-                  _placeholder={{ color: "#C6C5C5", fontSize: "sm" }}
-                  _hover={{ border: "0.662px solid  #EEE" }}
-                />
-                <InputRightElement>
-                  <Button variant={"unstyled"} size="lg" onClick={handleShow}>
-                    {show ? (
-                      <AiFillEyeInvisible color="#4B4B4B" />
-                    ) : (
-                      <AiFillEye color="#4B4B4B" />
-                    )}
+            {({ isValid, dirty }) => (
+              <Form noValidate>
+                <Box flexDir="column" display="flex" gap="1.5rem">
+                  <Flex
+                    flexDir={{ base: "column", md: "row" }}
+                    gap="1.5rem"
+                    w="100%"
+                  >
+                    <CustomInput
+                      label="First Name"
+                      name="firstName"
+                      type="text"
+                      placeholder="First Name"
+                      isRequired
+                    />
+                    <CustomInput
+                      label="Last Name"
+                      name="lastName"
+                      type="text"
+                      placeholder="Last Name"
+                      isRequired
+                    />
+                  </Flex>
+                  <CustomInput
+                    label="Phone Number"
+                    name="phoneNumber"
+                    type="text"
+                    placeholder="Phone Number"
+                    leftAddOnText="+234"
+                    isRequired
+                  />
+                  <CustomInput
+                    label="Email Address"
+                    name="email"
+                    type="email"
+                    placeholder="Email Address"
+                    isRequired
+                  />
+                  <CustomInput
+                    label="Password"
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                    isRequired
+                  />
+                  <CustomInput
+                    label="Confirm Password"
+                    name="confirmPassword"
+                    type="password"
+                    placeholder="Confirm Password"
+                    isRequired
+                  />
+                  <Flex
+                    flexDir={"row"}
+                    alignItems={"right"}
+                    justifyContent={"right"}
+                  >
+                    <Heading
+                      fontSize={"16px"}
+                      fontWeight={"500"}
+                      color={"primary"}
+                      as={Link}
+                    >
+                      Reset Password
+                    </Heading>
+                  </Flex>
+                  <Button
+                    variant={"solid"}
+                    size={"xl"}
+                    color="#fff"
+                    type="submit"
+                    w="100%"
+                    isDisabled={!(isValid && dirty)}
+                    isLoading={loading}
+                    loadingText={"Submitting"}
+                  >
+                    Sign Up
                   </Button>
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
-            <FormControl>
-              <FormLabel color="#1F1F1F" fontFamily={"Outfit"}>
-                Confirm Password
-              </FormLabel>
-              <InputGroup
-                as={Flex}
-                alignItems={"center"}
-                justifyContent={"center"}
-              >
-                <Input
-                  name="password"
-                  type={show ? "text" : "password"}
-                  placeholder="Confirm password"
-                  fontSize={"sm"}
-                  size="lg"
-                  borderRadius="4px"
-                  border="0.662px  solid  #EEE"
-                  bg={"#fff"}
-                  _placeholder={{ color: "#C6C5C5", fontSize: "sm" }}
-                  _hover={{ border: "0.662px solid  #EEE" }}
-                />
-                <InputRightElement>
-                  <Button variant={"unstyled"} size="lg" onClick={handleShow}>
-                    {show ? (
-                      <AiFillEyeInvisible color="#4B4B4B" />
-                    ) : (
-                      <AiFillEye color="#4B4B4B" />
-                    )}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
-            <Flex flexDir={"row"} alignItems={"right"} justifyContent={"right"}>
-              <Heading
-                fontSize={"16px"}
-                fontWeight={"500"}
-                color={"primary"}
-                as={Link}
-              >
-                Reset Password
-              </Heading>
-            </Flex>
-
-            <Button
-              variant={"solid"}
-              size={"xl"}
-              color="#fff"
-              type="submit"
-              w="100%"
-            >
-              Sign Up
-            </Button>
-          </chakra.form>
+                </Box>
+              </Form>
+            )}
+          </Formik>
         </Stack>
       </Container>
     </Box>
   );
 };
 
-export default RegisterationPage;
+export default RegistrationPage;

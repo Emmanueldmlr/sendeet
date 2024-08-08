@@ -18,7 +18,7 @@ import {
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import HamBurger from "../../../../public/Icons/Hamburger";
-import Logo from "../Ui/Logo";
+import Logo from "../ui/Logo";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import Sidebar from "./Sidebar";
 

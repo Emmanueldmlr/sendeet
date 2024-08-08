@@ -1,13 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import { Box } from "@chakra-ui/react";
-import SchedulePickup from "@/app/components/SchedulingForms/SchedulePickup";
-import PickupOrgin from "@/app/components/SchedulingForms/PickupOrginBusiness";
-import DescribePackage from "@/app/components/SchedulingForms/DescribePackage";
-import GetDeliveryPrices from "@/app/components/SchedulingForms/GetDeliveryPrices";
-import ProceedPayment from "@/app/components/SchedulingForms/ProceedPayment";
-import PickupOrginBusiness from "@/app/components/SchedulingForms/PickupOrginBusiness";
-import PickupOriginIndividual from "@/app/components/SchedulingForms/PickupOriginIndividual";
+import SchedulePickup from "@/app/components/schedulingForms/SchedulePickup";
+import DescribePackage from "@/app/components/schedulingForms/DescribePackage";
+import GetDeliveryPrices from "@/app/components/schedulingForms/GetDeliveryPrices";
+import ProceedPayment from "@/app/components/schedulingForms/ProceedPayment";
+import PickupOrginBusiness from "@/app/components/schedulingForms/PickupOrginBusiness";
+import PickupOriginIndividual from "@/app/components/schedulingForms/PickupOriginIndividual";
 
 const Schedulepage = () => {
   const [form, setForm] = useState(0);

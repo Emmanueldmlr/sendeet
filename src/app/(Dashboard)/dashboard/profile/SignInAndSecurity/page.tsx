@@ -1,6 +1,6 @@
 "use client";
-import DashHeader from "@/app/components/Dashboard/DashHeader";
-import PageWrapper from "@/app/components/Dashboard/PageWrapper";
+import DashHeader from "@/app/components/dashboard/DashHeader";
+import PageWrapper from "@/app/components/dashboard/PageWrapper";
 import { Flex, Link, Stack, Switch, Text } from "@chakra-ui/react";
 import React from "react";
 

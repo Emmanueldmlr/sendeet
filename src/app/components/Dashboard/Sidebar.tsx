@@ -1,6 +1,6 @@
 import { Flex, Icon, Link, Stack, Text, Box, HStack } from "@chakra-ui/react";
 import React from "react";
-import { WhiteLogo } from "../Ui/Logo";
+import { WhiteLogo } from "../ui/Logo";
 import { DashboardNavData } from "@/app/Data/DashboardBoardData";
 
 import SidebarItem from "./SidebarItem";

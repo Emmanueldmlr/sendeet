@@ -1,6 +1,6 @@
 import { FormControl, FormLabel, Input, Stack, Text } from "@chakra-ui/react";
 import React from "react";
-import PlansCard from "../Ui/PlansCard";
+import PlansCard from "../ui/PlansCard";
 
 const Page2 = () => {
   return (

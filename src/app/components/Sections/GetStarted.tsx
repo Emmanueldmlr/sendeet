@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { GETSTARTED } from "@/app/Data/SectionDatas";
-import LeftAnimation from "../Animation/LeftAnimation";
+import LeftAnimation from "../animation/LeftAnimation";
 
 const GetStarted = () => {
   return (

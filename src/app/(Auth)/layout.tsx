@@ -1,6 +1,6 @@
 "use client";
 
-import AuthHeader from "../components/Layout/AuthLayout/AuthHeader";
+import AuthHeader from "../components/layout/authLayout/AuthHeader";
 
 export default function RootLayout({
   children,

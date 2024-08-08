@@ -12,7 +12,7 @@ import { Box } from "framer-motion";
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import HamBurger from "../../../../../public/Icons/Hamburger";
-import Logo from "../../Ui/Logo";
+import Logo from "../../ui/Logo";
 import DesktopNav from "../DesktopNav";
 import { usePathname } from "next/navigation";
 
@@ -48,7 +48,6 @@ const AuthHeader = () => {
           ? " Do Not Have an Account?"
           : "Have an Account?"}{" "}
         <chakra.span pl="10px" color={"primary"} as={Link} href={Route}>
-          {" "}
           {pathname === "/SignIn" ? "Create One" : "Login here"}
         </chakra.span>
       </Heading>
