@@ -1,7 +1,7 @@
 "use client";
 import { FAQsData, ServicesData } from "@/app/Data/PagesData";
-import LeftAnimation from "@/app/components/animation/LeftAnimation";
-import RightAnimation from "@/app/components/animation/RightAnimation";
+import LeftAnimation from "@/app/components/Animation/LeftAnimation";
+import RightAnimation from "@/app/components/Animation/RightAnimation";
 import PageBanner from "@/app/components/Ui/PageBanner";
 import {
   Box,
@@ -20,7 +20,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import Arrowbend from "../../../../public/Icons/Arrowbend";
-import ButtomAnimation from "@/app/components/animation/ButtomAnimation";
+import ButtomAnimation from "@/app/components/Animation/ButtomAnimation";
 
 const page = () => {
   return (
