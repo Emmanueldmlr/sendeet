@@ -1,7 +1,7 @@
 "use client";
 import DashHeader from "@/app/components/dashboard/DashHeader";
 import PageWrapper from "@/app/components/dashboard/PageWrapper";
-import PageBanner from "@/app/components/ui/PageBanner";
+import PageBanner from "@/app/components/Ui/PageBanner";
 import {
   Avatar,
   Button,

@@ -14,7 +14,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import DashHeader from "../dashboard/DashHeader";
-import Stepper from "../ui/Stepper";
+import Stepper from "../Ui/Stepper";
 
 const PickupOrginBusiness = ({
   form,

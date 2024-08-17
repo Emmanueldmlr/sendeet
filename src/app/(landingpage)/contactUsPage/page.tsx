@@ -2,7 +2,7 @@
 import { ServicesData } from "@/app/Data/PagesData";
 import LeftAnimation from "@/app/components/animation/LeftAnimation";
 import RightAnimation from "@/app/components/animation/RightAnimation";
-import PageBanner from "@/app/components/ui/PageBanner";
+import PageBanner from "@/app/components/Ui/PageBanner";
 import {
   Box,
   Container,

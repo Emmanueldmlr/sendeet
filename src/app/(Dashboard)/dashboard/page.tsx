@@ -2,7 +2,7 @@
 import { DashHomeData } from "@/app/Data/DashboardBoardData";
 import DashHeader from "@/app/components/dashboard/DashHeader";
 import PageWrapper from "@/app/components/dashboard/PageWrapper";
-import FixedLink from "@/app/components/ui/FixedLink";
+import FixedLink from "@/app/components/Ui/FixedLink";
 import {
   Text,
   Box,

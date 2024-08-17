@@ -3,7 +3,7 @@
 import DashboardWrapper from "../components/dashboard/DashboardWrapper";
 import MobileDrawer from "../components/dashboard/MobileDrawer";
 import AuthHeader from "../components/layout/authLayout/AuthHeader";
-import FixedLink from "../components/ui/FixedLink";
+import FixedLink from "../components/Ui/FixedLink";
 
 export default function RootLayout({
   children,

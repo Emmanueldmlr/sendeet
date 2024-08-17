@@ -11,7 +11,7 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import Logo from "../ui/Logo";
+import Logo from "../Ui/Logo";
 import DesktopNav from "./DesktopNav";
 import HamBurger from "../../../../public/Icons/Hamburger";
 import MobileNav from "./MobileNav";

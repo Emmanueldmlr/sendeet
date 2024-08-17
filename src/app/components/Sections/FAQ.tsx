@@ -1,5 +1,5 @@
 import React from "react";
-import SectionWrapper from "../ui/SectionWrapper";
+import SectionWrapper from "../Ui/SectionWrapper";
 import {
   Accordion,
   AccordionButton,

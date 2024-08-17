@@ -1,7 +1,7 @@
 "use client";
 
 import { ABOUT_DATA, TakeAdvantageData } from "@/app/Data/PagesData";
-import PageBanner from "@/app/components/ui/PageBanner";
+import PageBanner from "@/app/components/Ui/PageBanner";
 import {
   Box,
   Container,

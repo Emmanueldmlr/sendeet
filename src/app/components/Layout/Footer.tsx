@@ -10,7 +10,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 
-import { WhiteLogo } from "../ui/Logo";
+import { WhiteLogo } from "../Ui/Logo";
 import { AiOutlineCopyright } from "react-icons/ai";
 import { IoLogoTwitter } from "react-icons/io";
 import { BsFacebook } from "react-icons/bs";

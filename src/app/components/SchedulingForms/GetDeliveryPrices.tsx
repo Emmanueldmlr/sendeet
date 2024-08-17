@@ -1,6 +1,6 @@
 import { Stack, Heading, HStack, Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import Stepper from "../ui/Stepper";
+import Stepper from "../Ui/Stepper";
 import DashHeader from "../dashboard/DashHeader";
 import PageWrapper from "../dashboard/PageWrapper";
 import { MdCalendarToday } from "react-icons/md";
