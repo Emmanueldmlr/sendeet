@@ -1,6 +1,6 @@
 "use client";
-import Page1 from "@/app/components/changePlanPages/Page1";
-import Page2 from "@/app/components/changePlanPages/Page2";
+import Page1 from "@/app/components/ChangePlanPages/Page1";
+import Page2 from "@/app/components/ChangePlanPages/Page2";
 import DashHeader from "@/app/components/Dashboard/DashHeader";
 import PageWrapper from "@/app/components/Dashboard/PageWrapper";
 import { Flex, Button, Text, HStack } from "@chakra-ui/react";
