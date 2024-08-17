@@ -1,8 +1,8 @@
 import { Stack, Heading, HStack, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import Stepper from "../Ui/Stepper";
-import DashHeader from "../dashboard/DashHeader";
-import PageWrapper from "../dashboard/PageWrapper";
+import DashHeader from "../Dashboard/DashHeader";
+import PageWrapper from "../Dashboard/PageWrapper";
 import { MdCalendarToday } from "react-icons/md";
 
 const GetDeliveryPrices = ({ form, setForm }: { form: any; setForm: any }) => {

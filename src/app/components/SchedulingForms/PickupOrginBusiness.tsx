@@ -1,5 +1,5 @@
 import React from "react";
-import PageWrapper from "../dashboard/PageWrapper";
+import PageWrapper from "../Dashboard/PageWrapper";
 import {
   Stack,
   Heading,
@@ -13,7 +13,7 @@ import {
   Container,
   Button,
 } from "@chakra-ui/react";
-import DashHeader from "../dashboard/DashHeader";
+import DashHeader from "../Dashboard/DashHeader";
 import Stepper from "../Ui/Stepper";
 
 const PickupOrginBusiness = ({
