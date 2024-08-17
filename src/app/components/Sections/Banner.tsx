@@ -10,7 +10,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import React from "react";
-import ButtomAnimation from "../animation/ButtomAnimation";
+import ButtomAnimation from "../Animation/ButtomAnimation";
 import Track from "../../../../public/Icons/Track";
 import Delivery from "../../../../public/Icons/Delivery";
 import { AiOutlineSearch } from "react-icons/ai";

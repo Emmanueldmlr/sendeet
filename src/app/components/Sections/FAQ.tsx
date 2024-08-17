@@ -16,7 +16,7 @@ import {
   chakra,
   Link,
 } from "@chakra-ui/react";
-import ButtomAnimation from "../animation/ButtomAnimation";
+import ButtomAnimation from "../Animation/ButtomAnimation";
 import { FAQS_DATA } from "@/app/Data/SectionDatas";
 import { IoMdArrowDown } from "react-icons/io";
 
