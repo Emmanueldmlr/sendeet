@@ -14,13 +14,13 @@ import {
 
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import CustomInput from "@/app/components/ui/CustomInput";
 import { RegistrationFormValues } from "./types";
 import { initialRegistrationFormValues } from "./data";
 import { registrationFormValidationSchema } from "./validations";
 import apiRequest from "@/utils/api";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import CustomInput from "../../../app/components/ui/CustomInput";
 
 const RegistrationPage = () => {
   const [loading, setLoading] = useState(false);
