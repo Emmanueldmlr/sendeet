@@ -14,8 +14,8 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { SERVICES } from "@/app/Data/SectionDatas";
-import LeftAnimation from "../animation/LeftAnimation";
-import RightAnimation from "../animation/RightAnimation";
+import LeftAnimation from "../Animation/LeftAnimation";
+import RightAnimation from "../Animation/RightAnimation";
 
 const Services = () => {
   return (

@@ -1,9 +1,7 @@
 "use client";
 
-import DashboardWrapper from "../components/dashboard/DashboardWrapper";
-import MobileDrawer from "../components/dashboard/MobileDrawer";
-import AuthHeader from "../components/layout/authLayout/AuthHeader";
-import FixedLink from "../components/ui/FixedLink";
+import DashboardWrapper from "../components/Dashboard/DashboardWrapper";
+import MobileDrawer from "../components/Dashboard/MobileDrawer";
 
 export default function RootLayout({
   children,

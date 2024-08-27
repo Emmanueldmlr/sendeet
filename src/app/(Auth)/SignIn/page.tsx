@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { usePathname } from "next/navigation";
-import CustomInput from "@/app/components/ui/CustomInput";
+import CustomInput from "@/app/components/Ui/CustomInput";
 import { Form, Formik } from "formik";
 import { initialSignInFormValues } from "./data";
 import { signInFormValidationSchema } from "./validations";

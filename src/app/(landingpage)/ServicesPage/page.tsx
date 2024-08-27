@@ -1,8 +1,8 @@
 "use client";
 import { ServicesData, TakeAdvantageData } from "@/app/Data/PagesData";
-import LeftAnimation from "@/app/components/animation/LeftAnimation";
-import RightAnimation from "@/app/components/animation/RightAnimation";
-import PageBanner from "@/app/components/ui/PageBanner";
+import LeftAnimation from "@/app/components/Animation/LeftAnimation";
+import RightAnimation from "@/app/components/Animation/RightAnimation";
+import PageBanner from "@/app/components/Ui/PageBanner";
 import {
   Box,
   Container,

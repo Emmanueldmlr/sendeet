@@ -1,9 +1,6 @@
 import {
   Flex,
   chakra,
-  IconButton,
-  HStack,
-  Button,
   Heading,
   Link,
 } from "@chakra-ui/react";

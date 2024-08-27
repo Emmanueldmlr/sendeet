@@ -6,7 +6,7 @@ import {
   MdSocialDistance,
 } from "react-icons/md";
 import { TbPackages, TbTruckDelivery } from "react-icons/tb";
-import PlansCard from "../ui/PlansCard";
+import PlansCard from "../Ui/PlansCard";
 
 const Page1 = () => {
   return (

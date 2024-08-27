@@ -1,6 +1,6 @@
 import { Flex, Heading } from "@chakra-ui/react";
 import React from "react";
-import ButtomAnimation from "../animation/ButtomAnimation";
+import ButtomAnimation from "../Animation/ButtomAnimation";
 
 const PageBanner = ({ bgImage, title }: { bgImage: string; title: string }) => {
   return (

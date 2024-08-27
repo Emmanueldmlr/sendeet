@@ -15,9 +15,9 @@ import {
   Button,
 } from "@chakra-ui/react";
 import React from "react";
-import DashHeader from "../dashboard/DashHeader";
-import PageWrapper from "../dashboard/PageWrapper";
-import Stepper from "../ui/Stepper";
+import DashHeader from "../Dashboard/DashHeader";
+import PageWrapper from "../Dashboard/PageWrapper";
+import Stepper from "../Ui/Stepper";
 import { MdAdd, MdAddCircle, MdHelp, MdRemove } from "react-icons/md";
 const DefaultPackage = [
   { boxsize: "Small Box", maxSize: "32x21 x1 cm", maxWeight: "3kg" },

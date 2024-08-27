@@ -1,8 +1,8 @@
 "use client";
 
-import Footer from "../components/layout/Footer";
-import Header from "../components/layout/Header";
-import FixedLink from "../components/ui/FixedLink";
+import Footer from "../components/Layout/Footer";
+import Header from "../components/Layout/Header";
+import FixedLink from "../components/Ui/FixedLink";
 
 export default function RootLayout({
   children,

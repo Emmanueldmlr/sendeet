@@ -1,7 +1,7 @@
 "use client";
-import DashHeader from "@/app/components/dashboard/DashHeader";
+import DashHeader from "@/app/components/Dashboard/DashHeader";
 
-import PageWrapper from "@/app/components/dashboard/PageWrapper";
+import PageWrapper from "@/app/components/Dashboard/PageWrapper";
 import {
   Flex,
   Stack,

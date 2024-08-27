@@ -1,8 +1,8 @@
 "use client";
-import DashHeader from "@/app/components/dashboard/DashHeader";
-import PageWrapper from "@/app/components/dashboard/PageWrapper";
-import AccordionComponent from "@/app/components/ui/AccordionComponent";
-import ProgressComponent from "@/app/components/ui/ProgressComponent";
+import DashHeader from "@/app/components/Dashboard/DashHeader";
+import PageWrapper from "@/app/components/Dashboard/PageWrapper";
+import AccordionComponent from "@/app/components/Ui/AccordionComponent";
+import ProgressComponent from "@/app/components/Ui/ProgressComponent";
 import {
   Box,
   Button,

@@ -13,7 +13,7 @@ import {
   Heading,
   chakra,
 } from "@chakra-ui/react";
-import ButtomAnimation from "../animation/ButtomAnimation";
+import ButtomAnimation from "../Animation/ButtomAnimation";
 import { FAQS_DATA } from "@/app/Data/SectionDatas";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { IoMail } from "react-icons/io5";
