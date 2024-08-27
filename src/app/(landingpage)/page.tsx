@@ -1,11 +1,11 @@
 "use client";
-import { Box, Text } from "@chakra-ui/react";
-import Banner from "../components/sections/Banner";
-import Services from "../components/sections/Services";
-import GetStarted from "../components/sections/GetStarted";
-import FAQ from "../components/sections/FAQ";
-import Track from "../components/sections/Track";
-import Clients from "../components/sections/Clients";
+import { Box } from "@chakra-ui/react";
+import Banner from "../components/Sections/Banner";
+import Services from "../components/Sections/Services";
+import GetStarted from "../components/Sections/GetStarted";
+import FAQ from "../components/Sections/FAQ";
+import Track from "../components/Sections/Track";
+import Clients from "../components/Sections/Clients";
 
 export default function HomePage() {
   return (
