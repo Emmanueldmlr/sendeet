@@ -29,4 +29,11 @@ a {
   color: #ff8c1a !important;
 }
 
+select:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
 

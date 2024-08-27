@@ -1,9 +1,7 @@
 import React from "react";
-import SectionWrapper from "../ui/SectionWrapper";
 import {
   Accordion,
   AccordionButton,
-  AccordionIcon,
   AccordionItem,
   AccordionPanel,
   Box,
@@ -14,72 +12,91 @@ import {
   Stack,
   Heading,
   chakra,
-  Link,
 } from "@chakra-ui/react";
 import ButtomAnimation from "../animation/ButtomAnimation";
 import { FAQS_DATA } from "@/app/Data/SectionDatas";
-import { IoMdArrowDown } from "react-icons/io";
+import { MdOutlinePhoneInTalk } from "react-icons/md";
+import { IoMail } from "react-icons/io5";
+import { FaLocationDot } from "react-icons/fa6";
 
 const FAQ = () => {
   return (
-    <Box py="5rem">
-      <Container p="1rem" bg="#fff" maxWidth="1200px">
+      <Container p={{base: "48px 24px" , lg: "55px 160px"}} bg="#fff" maxWidth="100%">
         <ButtomAnimation>
           <Flex
-            flexDir={{ base: "column", xl: "row" }}
-            alignItems={"center"}
+            flexDir={{ base: "column", md: "row" }}
             justifyContent={"center"}
+            alignItems={{ base: "center", md: "flex-start" }}
             w="100%"
-            gap="2rem"
+            gap="4rem"
           >
-            <Stack gap="1rem" textAlign={{ base: "center", xl: "left" }}>
+            <Stack
+              gap="1rem"
+              textAlign={{ base: "center", md: "left" }}
+              w={{ base: "100%", md: "600px" }}
+            >
               <Heading
-                fontSize={{ base: "24px", xl: "32px" }}
+                fontSize={{ base: "24px", md: "32px" }}
                 color="#1F1F1F"
                 fontWeight={"500"}
               >
-                Got Any <chakra.br display={{ base: "none", xl: "flex" }} />
-                <chakra.span color="primary">Question?</chakra.span>
+                Got Other <chakra.span color="#8E8E8E">Questions?</chakra.span>
               </Heading>
               <Heading
-                fontSize={{ base: "sm", xl: "16px" }}
+                fontSize={{ base: "sm", md: "16px" }}
                 fontWeight={"500"}
                 color={"#8e8e8e"}
-                w={{ base: "100%", xl: "260px" }}
+                fontFamily="Lora"
               >
                 Quick answers to the questions you may have. Can’t find what
-                you’re looking for? Check our full documentation by clicking
-                below
+                you’re looking for?
               </Heading>
-
-              <Link
-                // as={Flex}
-                href="/FaqPage"
-                gap="0.2rem"
-                display={{ base: "none", xl: "flex" }}
-                alignItems={"center"}
-                justifyContent={"left"}
-                fontFamily={"Outfit"}
-                fontSize={"18px"}
-                fontWeight={"600"}
-                color={"primary"}
+              <Box
+                mt="48px"
+                color="#573312"
+                fontSize={"14px"}
+                fontWeight={"500"}
+                display={"flex"}
+                flexDir={"column"}
+                alignItems={{base: "center", md: "left"}}
+                gap="11px"
               >
-                More FAQs <IoMdArrowDown />
-              </Link>
+                <Text display="flex" alignItems="center">
+                  <MdOutlinePhoneInTalk />
+                  <chakra.span ml="12px">+2348146523620</chakra.span>
+                </Text>
+                <Text display="flex" alignItems="center">
+                  <IoMail />
+                  <chakra.span ml="12px">
+                    sendeetlogistics@gmail.com
+                  </chakra.span>
+                </Text>
+                <Text display="flex" alignItems="center">
+                  <FaLocationDot />
+                  <chakra.span ml="12px">
+                    Obokun Street, Eleyele, Ibadan
+                  </chakra.span>
+                </Text>
+              </Box>
             </Stack>
             <Accordion
               allowToggle
-              boxShadow={" 1px 1px 10px 0px rgba(0, 0, 0, 0.10)"}
               w="100%"
+              gap="24px"
             >
               {FAQS_DATA.map((items, index) => (
-                <AccordionItem key={index}>
+                <AccordionItem
+                  key={index}
+                  borderRadius={"10px"}
+                  mb="24px"
+                  border="1px solid #E1E1E1"
+                >
                   <h2>
-                    <AccordionButton p={"10px"} color="#333">
+                    <AccordionButton color="#333" p="0 0 0 18px !important">
                       <Box
                         as={Flex}
                         flex="1"
-                        fontSize={{ base: "sm", lg: "md" }}
+                        fontSize={{ base: "sm", md: "md" }}
                         textAlign="left"
                         alignItems={"center"}
                         gap="1rem"
@@ -89,13 +106,13 @@ const FAQ = () => {
                         {items.question}
                       </Box>
                       <Box>
-                        <Image src="/Asset/Add.svg" w="80%" />
+                        <Image src="/Asset/Add.svg" h="2.9rem" />
                       </Box>
                     </AccordionButton>
                   </h2>
                   <AccordionPanel
                     color="#333"
-                    fontSize={{ base: "sm", lg: "md" }}
+                    fontSize={{ base: "sm", md: "md" }}
                     pb={4}
                   >
                     {items.answer}
@@ -103,24 +120,9 @@ const FAQ = () => {
                 </AccordionItem>
               ))}
             </Accordion>
-            <Link
-              // as={Flex}
-              href="/FaqPage"
-              gap="0.2rem"
-              display={{ base: "flex", xl: "none" }}
-              alignItems={"center"}
-              justifyContent={"left"}
-              fontWeight={"500"}
-              fontFamily={"Outfit"}
-              fontSize={"16px"}
-              color={"primary"}
-            >
-              More FAQs <IoMdArrowDown />
-            </Link>
           </Flex>
         </ButtomAnimation>
       </Container>
-    </Box>
   );
 };
 

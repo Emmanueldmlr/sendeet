@@ -4,113 +4,107 @@ import {
   Flex,
   HStack,
   Heading,
-  Icon,
   Image,
   SimpleGrid,
   Stack,
   Text,
-  Button,
   chakra,
+  Grid,
+  GridItem,
 } from "@chakra-ui/react";
 import React from "react";
-import SectionWrapper from "../ui/SectionWrapper";
 import { SERVICES } from "@/app/Data/SectionDatas";
 import LeftAnimation from "../animation/LeftAnimation";
 import RightAnimation from "../animation/RightAnimation";
 
 const Services = () => {
   return (
-    <Box>
-      <Container maxW={"1200px"}>
-        <Flex
-          flexDir={"row"}
-          alignItems={""}
-          justifyContent={"center"}
-          gap="1rem"
+    <Box padding={{ base: "48px 25px", md: "64px 0" }}>
+      <Container maxW={"1300px"}>
+        <Grid
+          templateColumns={{
+            base: "1fr",
+            md: "1fr 1fr",
+          }}
+          gap={{ base: "40px", md: "0" }}
         >
-          <LeftAnimation duration={0.5}>
-            <Stack
-              gap={{ base: "2rem", xl: "2rem" }}
-              py={{ base: "2rem", xl: "5rem" }}
-            >
-              <Text
-                fontSize={{ base: "xs", xl: "12px" }}
-                fontWeight={"500"}
-                lineHeight={"18px"}
-                color="#8E8E8E"
+          <GridItem>
+            <LeftAnimation duration={0.5}>
+              <Box
+                display="flex"
+                justifyContent={{ md: "flex-end", base: "center" }}
               >
-                OUR BEST SERVICES FOR YOU
-              </Text>
-              <Heading
-                fontSize={{ base: "24px", xl: "32px" }}
-                fontWeight={"500"}
-                color={"#1F1F1F"}
-              >
-                We manage logistics services for
-                <chakra.br display={{ base: "none", md: "flex" }} /> individuals
-                and businesses
-              </Heading>
-              <SimpleGrid
-                columns={{ base: 1, md: 2, xl: 2 }}
-                spacing={{ base: "3rem", lg: "10" }}
-              >
-                {SERVICES.map((item, index) => (
-                  <LeftAnimation duration={0.5} key={index}>
-                    <Flex
-                      flexDir={"column"}
-                      alignItems={"left"}
-                      justifyContent={"left"}
-                      gap={"1rem"}
-                      px={{ base: "1.9rem", lg: "0rem" }}
-                    >
-                      <HStack alignItems={"none"} gap="1rem">
-                        <Icon as={item.icon} fontSize={"30px"} />
-                        <Stack gap="1rem">
-                          <Heading
-                            color="#333"
-                            fontSize={{ base: "lg", lg: "20px" }}
-                          >
-                            {item.title}
-                          </Heading>
-                          <Text
-                            color="#7B7B7B"
-                            fontSize={{ base: "sm", lg: "14px" }}
-                          >
-                            {item.body}
-                          </Text>
-                        </Stack>
-                      </HStack>
-                    </Flex>
-                  </LeftAnimation>
-                ))}
-              </SimpleGrid>
-              <Flex
-                alignItems={{ base: "center", xl: "left" }}
-                justifyContent={{ base: "center", xl: "left" }}
-                mt={{ base: "1rem", lg: "1rem" }}
-              >
-                <Button
-                  h="40px"
-                  w={{ base: "100%", xl: "250px" }}
-                  mx={{ base: "2rem", lg: "1rem" }}
-                  variant="solid"
+                <Image
+                  src="/Asset/delivery-service.png"
+                  h={{ base: "329px", md: "529px" }}
+                  w="474px"
+                />
+              </Box>
+            </LeftAnimation>
+          </GridItem>
+          <GridItem>
+            <RightAnimation delay={0.5}>
+              <Stack pl={{ md: "40px", base: "0" }}>
+                <Heading
+                  fontSize={{ base: "24px", xl: "32px" }}
+                  fontWeight={"500"}
+                  color={"#1F1F1F"}
                 >
-                  Schedule a Delivery/Pickup
-                </Button>
-              </Flex>
-            </Stack>
-          </LeftAnimation>
-          <RightAnimation delay={0.5}>
-            <Box display={{ base: "none", xl: "flex" }}>
-              <Image
-                src="/Asset/man carrying box 1.png"
-                w="1900px"
-                h="650px"
-                mt="-0.8rem"
-              />
-            </Box>
-          </RightAnimation>
-        </Flex>
+                  Experience hassle-free delivery service with the{" "}
+                  <chakra.span color="#8E8E8E">
+                    premier courier companies near you
+                  </chakra.span>
+                </Heading>
+                <SimpleGrid
+                  columns={1}
+                  spacing={{ base: "3rem", lg: "24px" }}
+                  mt="16px"
+                >
+                  {SERVICES.map((item, index) => (
+                    <LeftAnimation duration={0.5} key={index}>
+                      <Flex
+                        flexDir={"column"}
+                        alignItems={"left"}
+                        justifyContent={"left"}
+                        p={"10px 20px"}
+                        borderBottom={
+                          index < SERVICES.length - 1
+                            ? "1px solid #E1E1E1"
+                            : "none"
+                        }
+                      >
+                        <HStack alignItems={"none"} gap="1rem">
+                          <Image
+                            src={item.src}
+                            h="64px"
+                            w="64px"
+                            borderRadius={"50%"}
+                            padding={"12px"}
+                            bg="#FFF3E8"
+                          />
+                          <Stack gap="1rem">
+                            <Heading
+                              color="#333"
+                              fontSize={{ base: "lg", lg: "20px" }}
+                            >
+                              {item.title}
+                            </Heading>
+                            <Text
+                              color="#7B7B7B"
+                              fontSize={{ base: "sm", lg: "14px" }}
+                            >
+                              {item.body}
+                            </Text>
+                          </Stack>
+                        </HStack>
+                      </Flex>
+                    </LeftAnimation>
+                  ))}
+                </SimpleGrid>
+              </Stack>
+            </RightAnimation>
+          </GridItem>
+        </Grid>
       </Container>
     </Box>
   );
