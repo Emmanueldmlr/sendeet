@@ -1,4 +1,4 @@
-import { Box, chakra, Heading, Link, Flex } from "@chakra-ui/react";
+import { Box, Heading, Link, Flex } from "@chakra-ui/react";
 import React from "react";
 import { NAV_DATA } from "@/app/Data/DestopNavData";
 import { usePathname } from "next/navigation";

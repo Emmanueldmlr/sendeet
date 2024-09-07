@@ -1,10 +1,5 @@
-import MdSpaceDashboard from "../../../public/Icons/MdSpaceDashboard";
-import Tracksvg from "../../../public/Icons/Tracksvg";
-import Api from "../../../public/Icons/Api";
-import DeliveryIcon from "../../../public/Icons/DeliveryIcon";
-
 export type ServicesType = {
-  icon: any;
+  src: string;
   title: string;
   body: string;
 };
@@ -22,41 +17,36 @@ export type ForAllType = {
 
 export const SERVICES: ServicesType[] = [
   {
-    icon: DeliveryIcon,
-    title: "On Time Pickup",
-    body: " Our experts use cutting-edge technology and industry best practices to enhance your logistics operations, saving you time and money through streamlined processes.",
-  },
-  {
-    icon: Api,
-    title: "APIs",
-    body: " Our APIs allow easy integration with your ERP, CRM, and other software, facilitating data exchange and process automation for time and resource savings.",
-  },
-  {
-    icon: MdSpaceDashboard,
+    src: "/Icons/Dashboard.png",
     title: "Dashboard",
     body: "Enjoy the insight of actionable data all in one place for easy monitoring of carrier performance",
   },
   {
-    icon: Tracksvg,
+    src: "/Icons/Track.png",
     title: "Real Time Tracking",
     body: "Monitor and know every movement of your package in real time anywhere and anytime like a boss",
+  },
+  {
+    src: "/Icons/DeliveryIcon.png",
+    title: "On Time Pickup",
+    body: "Our experts use cutting-edge technology and industry best practices to enhance your logistics operations, saving you time and money through streamlined processes.",
   },
 ];
 export const GETSTARTED: GetStartedType[] = [
   {
-    image: "/Asset/icon1.svg",
-    title: "Create / Log into your account",
-    body: " Join best delivery service by signing up with your email and name",
-  },
-  {
-    image: "/Asset/icon2.svg",
+    image: "/Asset/getStartedIcons/schedule.svg",
     title: "Schedule a pickup / delivery",
-    body: "Select either a one-off order or regular subscription, whichever one fits your business",
+    body: "Select your pickup and end location to begin your package journey with Sendeet",
   },
   {
-    image: "/Asset/icon3.svg",
-    title: "Send and track your package",
-    body: "Hand over your parcel to our delivery service and conveniently monitor its progress.",
+    image: "/Asset/getStartedIcons/payment.svg",
+    title: "Make payment and get started",
+    body: "Hand over your parcel to your preferred delivery service and conveniently monitor its progress",
+  },
+  {
+    image: "/Asset/getStartedIcons/receive.svg",
+    title: "Receive your package",
+    body: "Your receiver will receive their package in due time",
   },
 ];
 
@@ -100,4 +90,9 @@ export const FAQS_DATA = [
     answer:
       " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut",
   },
+  {
+    question: "Lorem ipsum dolor sit amet, consectetur",
+    answer:
+      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut",
+  }
 ];

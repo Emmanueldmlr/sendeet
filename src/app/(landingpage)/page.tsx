@@ -1,21 +1,21 @@
 "use client";
-import { Box, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Banner from "../components/Sections/Banner";
 import Services from "../components/Sections/Services";
 import GetStarted from "../components/Sections/GetStarted";
-import ForAll from "../components/Sections/ForAll";
 import FAQ from "../components/Sections/FAQ";
-import Location from "../components/Sections/Location";
+import Track from "../components/Sections/Track";
+import Clients from "../components/Sections/Clients";
 
 export default function HomePage() {
   return (
     <Box>
       <Banner />
+      <Track />
       <Services />
       <GetStarted />
-      <ForAll />
+      <Clients />
       <FAQ />
-      <Location />
     </Box>
   );
 }

@@ -1,19 +1,12 @@
 import {
   Flex,
   chakra,
-  IconButton,
-  HStack,
-  Button,
   Heading,
   Link,
 } from "@chakra-ui/react";
-import { Box } from "framer-motion";
 
 import React from "react";
-import { AiOutlineClose } from "react-icons/ai";
-import HamBurger from "../../../../../public/Icons/Hamburger";
-import Logo from "../../Ui/Logo";
-import DesktopNav from "../DesktopNav";
+import Logo from "../../ui/Logo";
 import { usePathname } from "next/navigation";
 
 const AuthHeader = () => {

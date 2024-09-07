@@ -21,7 +21,7 @@ const Header = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
 
   return (
-    <Flex flexDir={"column"} pos={"fixed"} w="100%" zIndex={800}>
+    <Flex flexDir={"column"} pos={"fixed"} w="100%" zIndex={800} borderBottom='1px solid #E1E1E1'>
       <Flex
         bg={"#fff"}
         flexDir={"row"}
@@ -29,7 +29,6 @@ const Header = () => {
         justifyContent={"space-between"}
         w="100%"
         padding={{ base: "20px 30px", xl: "20px 120px" }}
-        // borderBottom={"2px solid #eee"}
       >
         <Flex>
           <Link href="/">

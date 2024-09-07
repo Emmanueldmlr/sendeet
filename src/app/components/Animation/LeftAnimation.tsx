@@ -1,7 +1,6 @@
 import React from "react";
 import {
   useInViewAnimation,
-  useInViewAnimationFromRight,
 } from "../animationUtils";
 import { motion } from "framer-motion";
 

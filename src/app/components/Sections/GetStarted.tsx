@@ -2,10 +2,12 @@ import {
   Box,
   Container,
   Heading,
-  SimpleGrid,
+  Flex,
   Stack,
-  Text,
   Image,
+  chakra,
+  Button,
+  Text,
 } from "@chakra-ui/react";
 import React from "react";
 import { GETSTARTED } from "@/app/Data/SectionDatas";
@@ -13,81 +15,93 @@ import LeftAnimation from "../Animation/LeftAnimation";
 
 const GetStarted = () => {
   return (
-    <Box py="2rem">
-      <Container maxW={"1200px"}>
-        <Stack>
-          <Stack
-            backgroundImage="url('/Asset/Column.png')"
-            backgroundPosition={"center"}
-            backgroundRepeat={"no-repeat"}
-            backgroundSize={"cover"}
-            w="100%"
-            textAlign={"center"}
-            borderRadius={"16px"}
-            padding={{
-              base: "40px 40px 108px 40px",
-              xl: "64px 184px 148px 184px",
-            }}
-            gap="1rem"
-          >
-            <Text
-              fontSize={{ base: "xs", xl: "12px" }}
-              color="#8E8E8E"
-              fontWeight={"500"}
-            >
-              HOW TO GET STARTED
-            </Text>
-            <Heading
-              fontSize={{ base: "24px", xl: "32px" }}
-              color="#fff"
-              fontWeight={"400"}
-            >
-              Start sending your package now!
-            </Heading>
-            <Text
-              fontSize={{ base: "xs", xl: "15px" }}
-              color="#fff"
-              fontWeight={"500"}
-            >
-              Experience hassle-free delivery service without any complications
-              with the premier courier company.
-            </Text>
-          </Stack>
-          <SimpleGrid
-            columns={{ base: 1, xl: 3 }}
-            mt="-6rem"
-            spacing={{ base: 4, xl: 10 }}
-          >
-            {GETSTARTED.map((i, index) => (
-              <LeftAnimation key={index} duration={0.5}>
-                <Stack
-                  alignItems={"center"}
-                  textAlign={"center"}
-                  gap={{ base: "0.5rem", xl: "1.5rem" }}
+    <Container
+      maxW={"100%"}
+      display={"flex"}
+      flexDir={"column"}
+      gap="48px"
+      justifyContent={"center"}
+      alignItems="center"
+      bg={"#FAFAFA"}
+      p={{ base: "24px", md: "48px", lg: "64px" }}
+    >
+      <Heading color="#1F1F1F" fontSize={{ base: "24px", md: "28px", lg: "32px" }} fontWeight={"500"}>
+        Your Journey <chakra.span color="#8E8E8E">Starts Here</chakra.span>
+      </Heading>
+      <Stack>
+        <Flex
+          maxW="1200px"
+          mx="auto"
+          justify="center"
+          align="center"
+          textAlign="center"
+          flexWrap="wrap"
+          gap={{ base: "24px", md: "40px" }}
+          position={"relative"}
+        >
+          <Box
+            position="absolute"
+            top="50px"
+            left={{ base: "0", md: "calc(50% - 360px)" }}
+            right={{ base: "0", md: "calc(50% - 360px)" }}
+            h="1px"
+            bg="#DDD"
+            zIndex="200"
+            w={{ base: "100%", md: "70%" }}
+            mx="auto"
+            display={{ base: "none", xl: "block" }}
+          />
+          {GETSTARTED.map((i, index) => (
+            <LeftAnimation key={index} duration={0.5}>
+              <Box
+                display={"flex"}
+                flexDir={"column"}
+                alignItems={"center"}
+                w={{ base: "100%", md: "100%", lg: "270px" }}
+                gap="16px"
+                textAlign="center"
+                flex="1 1 100%"
+              >
+                <Image
+                  src={i.image}
+                  h={{ base: "70px", md: "90px" }}
+                  w={{ base: "70px", md: "90px" }}
+                  bg="#EEE"
+                  padding={"15px"}
+                  borderRadius={"50px"}
+                  zIndex={"999999999"}
+                />
+                <Heading
+                  as="h3"
+                  fontFamily={"Outfit"}
+                  fontSize={{ base: "16px", md: "18px" }}
+                  fontWeight={"500"}
                 >
-                  <Image src={i.image} w="50%" />
-                  <Heading
-                    color={"#1F1F1F"}
-                    fontSize={"18px"}
-                    fontWeight={"500"}
-                  >
-                    {i.title}
-                  </Heading>
-                  <Heading
-                    color="#8E8E8E"
-                    fontSize={"16px"}
-                    fontWeight={"500"}
-                    px={{ base: "2rem", xl: "0rem" }}
-                  >
-                    {i.body}
-                  </Heading>
-                </Stack>
-              </LeftAnimation>
-            ))}
-          </SimpleGrid>
-        </Stack>
-      </Container>
-    </Box>
+                  {i.title}
+                </Heading>
+                <Text
+                  fontFamily={"Lora"}
+                  color={"#8E8E8E"}
+                  fontSize={{ base: "12px", md: "14px" }}
+                  fontWeight={"500"}
+                >
+                  {i.body}
+                </Text>
+              </Box>
+            </LeftAnimation>
+          ))}
+        </Flex>
+      </Stack>
+      <Button
+        colorScheme="orange"
+        w={{ base: "full", md: "196px" }}
+        maxW="100%"
+        mt={{ base: "24px", md: "32px" }}
+        height={"50px"}
+      >
+        See available rate
+      </Button>
+    </Container>
   );
 };
 
